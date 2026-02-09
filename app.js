@@ -20,16 +20,26 @@ const userRouter = require("./routes/user.js");
 
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl= process.env.ATLAS_URL;
+
+if (!dbUrl) {
+  console.error("ATLAS_URL environment variable is not set!");
+  process.exit(1);
+}
+
 main()
      .then(()=>{
         console.log("connected to mongoDB");
      })
       .catch((err)=>{
-        console.log("error connecting to mongoDB", err);
+        console.error("error connecting to mongoDB:", err);
+        process.exit(1);
       });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(dbUrl, {
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+  });
 }
 
 app.set("view engine", "ejs");
@@ -88,7 +98,7 @@ app.use((req,res,next) =>{
 // });
 
 app.get('/', (req, res) => {
-  res.send("hi,I am root <br> <a href='/listings'>Go to Listings</a>");
+  res.render("home.ejs");
 });
 
 app.use("/listings",listingsRouter);

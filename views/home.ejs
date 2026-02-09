@@ -1,0 +1,75 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .home-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .home-subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .home-btn {
+    background-color: #fe424d;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(254, 66, 77, 0.3);
+    font-weight: 600;
+  }
+
+  .home-btn:hover {
+    background-color: #e63946;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(254, 66, 77, 0.4);
+  }
+
+  .welcome-icon {
+    font-size: 5rem;
+    color: #fe424d;
+    margin-bottom: 1.5rem;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+</style>
+
+<div class="home-container">
+  <div class="welcome-icon">
+    <i class="fa-solid fa-house-chimney"></i>
+  </div>
+  <h1 class="home-title">Welcome to WanderLust</h1>
+  <p class="home-subtitle">Discover amazing places to stay around the world</p>
+  <a href="/listings" class="home-btn">
+    <i class="fa-solid fa-compass"></i> Explore Listings
+  </a>
+</div>
