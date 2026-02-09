@@ -1,4 +1,4 @@
-if(process.env.NODE_env != "production"){
+if(process.env.NODE_ENV != "production"){
   require('dotenv').config();
 }
 const express = require('express');
@@ -9,7 +9,6 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const ExpressError = require("./utils/ExpressError.js");
 const session=require("express-session");
-const MongoStore =require("connect-mongo");
 const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
@@ -53,8 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // });
 
 const sessionOptions={
-  // store,
-  secret:process.env.SECRET,
+  secret:process.env.SECRET || "thisshouldbeabettersecret",
   resave: false,
   saveUninitialized:true,
   cookie :{
@@ -63,11 +61,6 @@ const sessionOptions={
     httpOnly: true,
   },
 };
-
-// app.get('/', (req, res) => {
-//   res.send("hi,I am root <br> <a href='/listings'>Go to Listings</a>");
-// });
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -94,8 +87,9 @@ app.use((req,res,next) =>{
 //   res.send(registeredUser);
 // });
 
-
-
+app.get('/', (req, res) => {
+  res.send("hi,I am root <br> <a href='/listings'>Go to Listings</a>");
+});
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
