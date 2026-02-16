@@ -61,6 +61,84 @@
       transform: translateY(-20px);
     }
   }
+
+  /* Responsive styles for tablets */
+  @media (max-width: 991px) {
+    .home-title {
+      font-size: 2.8rem;
+    }
+
+    .home-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .welcome-icon {
+      font-size: 4rem;
+    }
+  }
+
+  /* Responsive styles for mobile phones */
+  @media (max-width: 768px) {
+    .home-container {
+      min-height: 50vh;
+      padding: 1.5rem;
+    }
+
+    .home-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .home-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-btn {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+
+    .welcome-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Responsive styles for small phones */
+  @media (max-width: 480px) {
+    .home-container {
+      min-height: 40vh;
+      padding: 1rem;
+    }
+
+    .home-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .home-subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-btn {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .home-btn i {
+      margin-right: 0;
+    }
+
+    .welcome-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+  }
 </style>
 
 <div class="home-container">

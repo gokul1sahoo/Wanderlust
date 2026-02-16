@@ -3,34 +3,130 @@
   <style>
     #filters{
       display:flex;
-      flex-wrap:wrap
+      flex-wrap:wrap;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
     }
     .filter{
       text-align: center;
-      margin-right: 2rem;
+      margin-right: 1rem;
       opacity: 0.7;
+      flex-shrink: 0;
+      min-width: 60px;
     }
 
     .filter:hover{
-      opacity: 2;
+      opacity: 1;
       cursor: pointer;
     }
     .filter p {
       font-size: 0.8rem;
     }
+
+    .filter i {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
     .tax-info{
       display: none;
     }
     .tax-toggle{
       border:1px solid black;
       border-radius: 1rem;
-      height: 3rem;
+      height: auto;
       padding:1rem;
-      margin-left: 5rem;
+      margin-left: auto;
+      margin-right: 1rem;
       display: flex;
       align-items: center;
+      flex-shrink: 0;
     }
 
+    /* Responsive styles for tablets and below */
+    @media (max-width: 768px) {
+      #filters {
+        gap: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      .filter {
+        margin-right: 0.5rem;
+        min-width: 50px;
+      }
+
+      .filter p {
+        font-size: 0.7rem;
+      }
+
+      .filter i {
+        font-size: 1.2rem;
+      }
+
+      .tax-toggle {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .form-check-label {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Responsive styles for small phones */
+    @media (max-width: 480px) {
+      #filters {
+        gap: 0.3rem;
+        padding: 0.3rem;
+      }
+
+      .filter {
+        margin-right: 0.3rem;
+        min-width: 45px;
+      }
+
+      .filter p {
+        font-size: 0.65rem;
+      }
+
+      .filter i {
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .tax-toggle {
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      .form-check-label {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* Responsive card image heights */
+    .listing-card img {
+      height: 20rem;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .listing-card img {
+        height: 15rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .listing-card img {
+        height: 12rem;
+      }
+    }
   </style>
 <div id="filters">
   <div class="filter">
@@ -84,7 +180,7 @@
   <img src="<%= (listing.image && listing.image.url) ? listing.image.url : 'https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60' %>" 
   class="card-img-top" 
   alt="listing_image"
-   style="height: 20rem;"/>
+   style="height: 20rem; object-fit: cover;"/>
    
   <div class="card-body">
     <b><h5 class="card-title"><%= listing.title %></h5></b>

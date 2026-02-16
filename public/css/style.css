@@ -10,10 +10,35 @@ body{
 }
 .container{
   flex: 1;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive container padding */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
 }
 .navbar{
-  height: 5rem;
+  height: auto;
+  min-height: 5rem;
   background-color: white;
+  padding: 0.5rem 0;
+}
+
+/* Responsive navbar height */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 0.5rem;
+  }
 }
 
 /* colour of compass icon */
@@ -57,6 +82,52 @@ body{
     justify-content: center;
     align-items: space-evenly;
   }
+
+  /* Responsive footer */
+  @media (max-width: 768px) {
+    .f-info {
+      height: auto;
+      padding: 1rem;
+    }
+
+    .f-info-links, .f-info-socials, .f-info-brand {
+      padding: 0.5rem 0;
+    }
+
+    .f-info-links a {
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .f-info-socials i {
+      font-size: 1rem;
+      margin-right: 0.8rem;
+    }
+
+    .f-info-brand {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .f-info {
+      padding: 0.8rem;
+    }
+
+    .f-info-links a {
+      margin: 0 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    .f-info-socials i {
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+    }
+
+    .f-info-brand {
+      font-size: 0.8rem;
+    }
+  }
   .listing-card{
     border:none  !important;
     margin-bottom: 2rem;
@@ -95,20 +166,101 @@ body{
     background-color:#e85b0f!important;
     border:none !important;
   }
+
+  /* Responsive form controls */
+  .form-control, .form-select, .btn {
+    min-height: 44px;
+  }
+
+  @media (max-width: 768px) {
+    .form-control, .form-select, .btn {
+      min-height: 40px;
+      font-size: 1rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .form-control, .form-select, .btn {
+      min-height: 36px;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+    }
+  }
 /* showe page */
 .show-img{
   height: 30vh;
-  width: 20rem;
-  
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Responsive images */
+@media (max-width: 768px) {
+  .show-img {
+    height: 20vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .show-img {
+    height: 15vh;
+  }
 }
 .btn{
   display: flex;
   gap: 1rem !important;
-  
-  
+  flex-wrap: wrap;
   background-color: hsl(149, 85%, 37%) !important ;
 }
+
+/* Responsive buttons */
+@media (max-width: 480px) {
+  .btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
 /*card size*/
 .card-show{
-  width: 30rem !important;
+  width: 100% !important;
+  max-width: 30rem !important;
+}
+
+/* Responsive card layout */
+@media (max-width: 768px) {
+  .card-show {
+    max-width: 100% !important;
+  }
+}
+
+/* Listing card responsive adjustments */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin-bottom: 1rem;
+  }
 }
